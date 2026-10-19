@@ -1,0 +1,20 @@
+#!/bin/bash
+
+fruit=${1,,}
+
+echo "${fruit}"
+
+case $1 in
+	apple)
+		echo "Red"
+	;;
+	banana)
+		echo "Yellow"
+	;;	
+	kiwi)
+		echo "Green"
+	;;
+	*)
+		echo "Unknown fruit"
+		exit 1
+esac
