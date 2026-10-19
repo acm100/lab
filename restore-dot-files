@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#Move existing files into dotfiles (if they exist)
+
+mv ~/repos/lab/dotfiles/bashrc ~/.bashrc
+mv ~/repos/lab/dotfiles/vimrc ~/.vimrc
+mv ~/repos/lab/dotfiles/starship.toml ~/.config/starship.toml
