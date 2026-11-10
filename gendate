@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Format YYYY-MM-DD
+
+header=""
+date=${date +"%Y-%m-%d"}
+
+if [[ $# -gt 0 ]]; then
+	# Handling wrong arguments
+	if [[ $# -eq 1 || "$1" != "h" ]]; then
+        	echo "Example usage: gendate h 2 -> ## YYYY-MM-DD"
+         	exit 1
+        fi
+	
+	# With arguments h, n
+	if [[ $# -eq 2 ]]; then
+		i=1
+    		while [ "$i" -le "$2" ]; do
+        		header+="#"
+        		((i++))
+    		done
+		header+=" "$date
+		echo "$header"
+		exit 1
+	fi
+fi
+
+#No arguments
+echo "$date"
+
+
+
+
