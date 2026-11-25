@@ -1,0 +1,21 @@
+# Lesson 1: First Containerlab Topology
+# Two SR Linux nodes connected directly
+
+name: first-lab
+
+topology:
+  nodes:
+
+    # First Alpine Linux node
+    host1:
+      kind: linux
+      image: alpine:3.20
+
+    # First SR Linux node
+    router:
+      kind: srl
+      image: ghcr.io/nokia/srlinux:24.10.1
+
+  links:
+    # Connect srl1's ethernet-1/1 to srl2's ethernet-1/1
+    - endpoints: ["router:e1-1", "host1:eth1"]

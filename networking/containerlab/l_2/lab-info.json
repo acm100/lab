@@ -1,0 +1,46 @@
+{
+  "first-lab": [
+    {
+      "lab_name": "first-lab",
+      "labPath": "../topology/lab.myclab.yml",
+      "absLabPath": "/home/acm10101/Repos/github.com/acm10101/lab_private/drew_elliott/kubecraft/lessons/clab/01-containerlab-primer/topology/lab.myclab.yml",
+      "name": "clab-first-lab-srl1",
+      "container_id": "f62f49620c36",
+      "image": "ghcr.io/nokia/srlinux:24.10.1",
+      "kind": "srl",
+      "state": "running",
+      "status": "Up About an hour",
+      "ipv4_address": "172.20.20.2/24",
+      "ipv6_address": "3fff:172:20:20::2/64",
+      "owner": "acm10101"
+    },
+    {
+      "lab_name": "first-lab",
+      "labPath": "../topology/lab.myclab.yml",
+      "absLabPath": "/home/acm10101/Repos/github.com/acm10101/lab_private/drew_elliott/kubecraft/lessons/clab/01-containerlab-primer/topology/lab.myclab.yml",
+      "name": "clab-first-lab-srl2",
+      "container_id": "06d4f0a9af59",
+      "image": "ghcr.io/nokia/srlinux:24.10.1",
+      "kind": "srl",
+      "state": "running",
+      "status": "Up About an hour",
+      "ipv4_address": "172.20.20.3/24",
+      "ipv6_address": "3fff:172:20:20::3/64",
+      "owner": "acm10101"
+    },
+    {
+      "lab_name": "first-lab",
+      "labPath": "../topology/lab.myclab.yml",
+      "absLabPath": "/home/acm10101/Repos/github.com/acm10101/lab_private/drew_elliott/kubecraft/lessons/clab/01-containerlab-primer/topology/lab.myclab.yml",
+      "name": "clab-first-lab-srl3",
+      "container_id": "88d04bb18fc1",
+      "image": "ghcr.io/nokia/srlinux:24.10.1",
+      "kind": "srl",
+      "state": "running",
+      "status": "Up About an hour",
+      "ipv4_address": "172.20.20.4/24",
+      "ipv6_address": "3fff:172:20:20::4/64",
+      "owner": "acm10101"
+    }
+  ]
+}

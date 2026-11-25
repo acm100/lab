@@ -1,0 +1,2 @@
+- A running node is executing a process. As opose to an exited one which still exist but does not run any processes.
+- An interface that is up is an interface that is connected to another node. An interface down has got no connections.
