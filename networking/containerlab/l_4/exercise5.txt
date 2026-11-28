@@ -1,0 +1,37 @@
+- Traceroute output showing the routing loop pattern
+
+docker exec clab-routing-basics-host1 traceroute -n -w 2 10.1.5.2
+traceroute to 10.1.5.2 (10.1.5.2), 30 hops max, 60 byte packets
+ 1  10.1.1.1  0.924 ms  0.889 ms  0.880 ms
+ 2  10.1.2.2  0.708 ms  0.719 ms  0.717 ms
+ 3  10.1.2.1  0.814 ms  0.801 ms  0.791 ms
+ 4  10.1.2.2  1.491 ms  1.542 ms  1.548 ms
+ 5  * * *
+ 6  10.1.2.2  1.501 ms  0.980 ms  0.965 ms
+ 7  * * *
+ 8  10.1.2.2  1.640 ms * *
+ 9  * * *
+10  * * *
+11  * * *
+12  10.1.2.2  10.544 ms  10.610 ms  11.025 ms
+13  * * *
+14  10.1.2.2  11.864 ms  12.095 ms  12.136 ms
+15  * * *
+16  10.1.2.2  12.333 ms  13.535 ms  13.694 ms
+17  * * *
+18  10.1.2.2  7.629 ms * *
+19  * * *
+20  * 10.1.2.2  8.609 ms  8.599 ms
+21  * * *
+22  10.1.2.2  8.410 ms  8.462 ms  11.474 ms
+23  * * *
+24  10.1.2.2  12.882 ms  12.892 ms  12.863 ms
+25  * * *
+26  10.1.2.2  11.507 ms  11.538 ms *
+27  * * *
+28  * * *
+29  * * *
+30  10.1.2.2  6.028 ms  6.029 ms  6.022 ms
+
+- Explanation of TTL and how it prevents infinite loops.
+Every router that forwards a packet decremetns its TTL. As it reaches 0 the packet gets dropped.

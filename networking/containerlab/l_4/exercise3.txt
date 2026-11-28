@@ -1,0 +1,37 @@
+- Small note:
+Pinging between hosts would not work because of default routing set to eth0 not eth1 and to address 172.20.20.0/24 (address of the docker/linux bridge)
+
+To fix that it was necessary to enter each host shell and manualy set the correct address accessible to eth1 of each of the hosts.
+
+# Host1
+docker exec -it host1 sh
+ip addr add 10.1.1.2/24 dev eth1
+ip route replace default via 10.1.1.1 dev eth1
+
+# Host2
+docker exec -it host2 sh
+ip addr add 10.1.4.2/24 dev eth1
+ip route replace default via 10.1.4.1 dev eth1
+
+# Host3
+docker exec -it host3 sh
+ip addr add 10.1.5.2/24 dev eth1
+ip route replace default via 10.1.5.1 dev eth1
+
+- Explanation of why the missing route breaks both directions (forward path vs return path):
+Routing is hop by hop and per direction, and every router on the path needs a route to the destination of each packet. A ping needs two packets: the request going out and the reply coming back, and the reply is addressed to the source subnet.
+
+- Diagnostic commands you used:
+# to ping from host1 to host2.
+docker exec clab-routing-basics-host1 ping -c 2 10.1.4.2
+# or ping from host2 to host1.
+docker exec clab-routing-basics-host2 ping -c 2 10.1.1.2
+# and ping from host2 to host3.
+docker exec clab-routing-basics-host2 ping -c 2 10.1.5.2
+# check the routing table of the srl2.
+docker exec -it clab-routing-basics-srl2 sr_cli "show network-instance default route-table ipv4-unicast summary"
+# in the displayed table, look for the ip static ip address of the subnet host3 is part of.
+
+# check the traceroute
+docker exec host1 traceroute 10.1.4.2
+docker exec host2 traceroute 10.1.5.2
